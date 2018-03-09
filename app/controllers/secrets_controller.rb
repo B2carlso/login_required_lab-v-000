@@ -1,15 +1,12 @@
 class SecretsController < ApplicationController
-
   before_action :require_login
-
-  def new
-  end
 
   def show
   end
 
-private
+  private
+
   def require_login
-    redirect_to login_path unless session.include? :name
+    redirect_to login_path if !current_user
   end
 end
